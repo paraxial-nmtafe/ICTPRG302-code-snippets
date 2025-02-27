@@ -12,3 +12,15 @@ This isn't a Python file, it's just a series of questions to ask yourself about 
 4. What about `len({ 'a':1, 'b': -1 })`?
 
 5. Have a think about how, given the list `[1,2,3,4,5]`, you might generate the list `[1,3,5]`
+
+6. Suppose you have the following dictionary:
+
+```python
+nested_object = {
+    "key": {
+        "greeting": "hello"
+    }
+}
+```
+
+How would you get python to return the "hello" value from it?
