@@ -13,4 +13,7 @@ an eye on your git log as well 😄.
 
 ## Dictionary & List Exercises
 
+- Have a read through [[./collections.md]]
+- media_list.py just helps you understand that lists can contain dictionaries as elements.
 - star_ratings.py is probably a good extension to the problems we tried during class. 
+
