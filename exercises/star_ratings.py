@@ -39,16 +39,39 @@ See how you might factor this into functions to improve readability.
 
 ratings = {}
 
+def safely_process_input(raw_input):
+    try:
+        title, rating = raw_input.split(",")
+        return [title, int(rating)]
+    except (ValueError, TypeError):
+        return [None, None]
+
 while True:
     raw_input = input("Title and rating: ")
     if raw_input == "":
         break
+    title, rating = safely_process_input(raw_input)
+    if (title == None) or (rating == None):
+        print("You should input a title (string) and a rating (integer) as a comma-separated-value")
+        continue
 
-    # Here, get your title and rating
-    # Do some data checking -- you want to make sure your rating is a number, after all:
+    rating_list = ratings.get(title, [])
+    rating_list.append(rating)
+    ratings[title] = rating_list
 
-# Once you're done, you'll need to go through your list of ratings and output the format:
-for title, rating_list in ratings:
-    pass # Replace this line
+"""
+This ultimately builds a structure that looks something like this:
+ratings = {
+    'The user input title': [1,4,2,1,2],
+    'Some other title': [3,3]
+}
+"""
+
+print("***")
+
+for title, rating_list in ratings.items():
+    rounded_average = round(sum(rating_list)/len(rating_list), 2)
+    print("'" + title + "' had a minimum score of " + str(min(rating_list)) + ", a maximum score of " + str(max(rating_list)) + ", and averaged " + str(rounded_average) + ".")
+
 
 
