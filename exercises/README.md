@@ -11,7 +11,12 @@ These are not full answers, they are just one of many solutions.
 If you're keeping up with RIoT, this is good practice to switch branches and keep 
 an eye on your git log as well 😄.
 
-## Dictionary & List Exercises
+## 04: Loops
+
+- There's a week 4 revision exercise in Blackboard to print multiplication tables
+- I will also add the following: various_pointy_trees.py
+
+## 07, 08: Dictionary & List Exercises
 
 - Have a read through [[./collections.md]]
 - media_list.py just helps you understand that lists can contain dictionaries as elements.
