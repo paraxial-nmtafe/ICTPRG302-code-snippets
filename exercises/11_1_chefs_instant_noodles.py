@@ -18,6 +18,15 @@ Output a range of number of customers that you might be serving tonight.
 """
 
 def number_of_customers(stoves, minutes):
-    pass
+    return stoves * minutes
 
-
+try:
+    stove_count = int(input("Number of stoves? "))
+    minutes_available = int(input("Enter the number of minutes available for cooking? "))
+    print(
+        "Number of customers that can be served:", 
+        number_of_customers(stove_count, minutes_available)
+        )
+except:
+    print("Please enter valid integer(s)")
+    exit(1)
