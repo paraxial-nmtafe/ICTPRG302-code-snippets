@@ -3,7 +3,7 @@ quick
 brown
 fox
 jumps
-over 
+over
 the
 lazy
-dog 
+dog.

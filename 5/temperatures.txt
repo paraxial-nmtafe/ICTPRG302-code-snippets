@@ -1,0 +1,5 @@
+Perth: 37
+Melbourne: 20
+Hobart: 18                                        
+Brisbane: 32
+Sydney: 24
