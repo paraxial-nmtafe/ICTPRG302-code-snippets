@@ -1,3 +1,5 @@
+Hello, from the month of August
+
 # README
 This repository is not meant as anything but a collection of snippets that have been written live in class during NMTAFE's ICTPRG302, by me.  It is intended for educational purposes only.
 
