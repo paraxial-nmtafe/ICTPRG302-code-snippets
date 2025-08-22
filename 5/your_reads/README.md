@@ -10,7 +10,7 @@ It might be a little complicated, but it puts everything we've learned over the 
 
 ---
 
-Here's the overview: 
+Here's the overview:
 You want to store information about books
 - ones you've read
 - ones you want to read
@@ -22,15 +22,13 @@ You want to have the following information available about each book:
 - title
 - author
 - genre
-- your_rating
-- year_of_publication
+- your_rating (0-5)
 - status: (read, want_to_read, gave_up)
-- length (pages)
 
 ---
 
 1. Let's think of a data structure.  There's really only two acceptable options here. (Both involve dictionaries)
-2. I like to start at the interface.  Let's write an input loop and a menu. 
+2. I like to start at the interface.  Let's write an input loop and a menu.
 3. Let them escape -- let's have a "quit" function.
 4. Let's try "Show".  It's boring, but useful.
 5. Now let's try "Add"

@@ -1,59 +1,65 @@
-all_books = [{
-    "title": "All Systems Red",
-    "author": "Martha Wells",
-    "genre": "SciFi",
-    "rating": 5,
-    "status": "read", # want-to-read; gave-up
-}]
-app_running = True
+books = [
+    {
+        "title": "All Systems Red",
+        "author": "Martha Wells",
+        "genre": "SciFi",
+        "rating": 5,
+        "status": "read"
+    }
+]
+
+program_running = True
 
 def print_menu():
-    print("Welcome to YourReads")
-    print("====================")
-    print("q to Quit")
-    print("s to Show all books")
-    print("a to Add a book")
-    print("====================")
-    print()
+    print("Welcome to Your Reads")
+    print("===========================")
+    print("Q to quit")
+    print("S to show all books")
+    print("A to add a book")
+    print("===========================")
 
-def print_all_books():
+def show_all_books():
     print()
-    for book in all_books:
-        print("[" + book["status"].upper() + "] " + book["title"] + ", by " + book["author"])
+    for book in books:
+        print("[" + book['status'].upper() + "] " + book['title'] + " by " + book['author'] + " rated: " + str(book.get('rating', 0)))
     print()
 
 def add_a_book():
     new_book = {}
-    split_information = []
-    while len(split_information) != 3:
-        print("Enter your book in the format:")
-        print("title;author;genre")
-        combined_input = input("Your book?\n")
-        split_information = combined_input.split(";")
+    detail_list = []
+    while len(detail_list) != 3:
+        raw_input = input("Please enter your book (title,author,genre): ")
+        detail_list = raw_input.split(",")
+    print("[DEBUG]", detail_list)
+    new_book['title'] = detail_list[0]
+    new_book['author'] = detail_list[1]
+    new_book['genre'] = detail_list[2]
 
-    new_book["title"] = split_information[0]
-    new_book["author"] = split_information[1]
-    new_book["genre"] = split_information[2]
-    rating = -1
-    while rating < 1 or rating > 5:
-        rating = int(input("What would you rate this book? (1-5) "))
+    while True:
+        rating = input("What would you rate this book (0-5) ")
+        print("[DEBUG]", rating, rating.isdigit())
+        if rating.isdigit():
+            rating = int(rating)
+            if rating < 0 or rating > 5:
+                continue
+            new_book['rating'] = rating
+            break
 
-    new_book["rating"] = rating
-    status = ""
-    while status not in ["read", "want-to-read", "gave-up"]:
-        status = input("What's your reading status?(read, want-to-read, gave-up) ").lower()
+    status = ''
+    while status not in ['read', 'want-to-read', 'gave-up']:
+        status = input("Have you read the book (read, want-to-read, gave-up) ")
 
-    new_book["status"] = status
-
+    new_book['status'] = status
     return new_book
 
-while app_running:
+while program_running:
     print_menu()
-    menu_choice = input("What do you want to do? ").lower()
+    user_input = input("Choose from the menu: ").upper()
+    if user_input == "Q":
+        program_running = False
 
-    if (menu_choice == 'q'):
-        app_running = False
-    if (menu_choice == 's'):
-        print_all_books()
-    if (menu_choice == 'a'):
-        all_books.append(add_a_book())
+    if user_input == "S":
+        show_all_books()
+
+    if user_input == "A":
+        books.append(add_a_book())
